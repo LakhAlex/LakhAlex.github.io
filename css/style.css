@@ -1,0 +1,127 @@
+/* 모든 요소의 기본 마진과 패딩 제거 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body가 화면 전체를 차지하도록 설정 */
+html, body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* 스크롤 방지 */
+}
+
+.hidden{
+    display: none;
+}
+
+
+/* 전체 화면을 채우는 배경 */
+.imgBackground {
+    position: fixed; /* 화면 전체를 덮기 위해 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* 가장 아래로 배치 */
+}
+
+/* 컨테이너 중앙 정렬 */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 세로 중앙 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+}
+
+/* 시계 - 좌측 상단 */
+#clock {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    color: white;
+    z-index: 1000;
+}
+
+/* To-Do 입력 및 목록 - 화면 중앙 */
+#todo-container {
+    text-align: center;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* 명언 - 화면 하단 */
+#quote {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+
+/* greeting과 input 요소를 위로 조금 올리기 */
+#greeting {
+    position: absolute;
+    top: 100px; /* 원하는 위치 조정 */
+    left: 50%;
+    transform: translateX(-50%); /* 중앙 정렬 */
+    color: black;
+    text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white;
+    font-size: 2.5rem;
+}
+
+/* input 요소 스타일 */
+#todo-form {
+    position: absolute; /* absolute로 변경 */
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%); /* 중앙 정렬 */
+    z-index: 10;
+}
+
+/* input에 고정된 너비와 좌측 정렬 */
+#todo-form input {
+    font-size: 1rem;
+    color: black;
+    text-align: left; /* 좌측 정렬 */
+    text-shadow: 1px 1px 0px #ccc, -1px -1px 0px #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px; /* 고정된 너비 */
+    box-sizing: border-box; /* padding이 width에 포함되도록 */
+}
+
+/* todo 목록 항목에 글자 가장자리에 테두리 효과 추가 */
+#todo-list li {
+    font-size: 1.5rem;
+    color: black;
+    text-shadow: 
+    /* 1px 1px 0px white,  */
+    -2px -2px 0px white;
+}
+
+#todo-list {
+    margin-top: 10px; /* input과 ul 간의 간격을 더 늘리고 싶다면 추가 */
+}
+
+
