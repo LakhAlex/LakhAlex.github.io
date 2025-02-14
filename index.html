@@ -1,5 +1,3 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,23 +9,27 @@
 <body>
     <div class="container">
         <form id="login-form" class="hidden">
-            <input type="text" required maxlength="15" placeholder="What is your name?" />
-            <input type="submit" value="Log In" />
+            <input id="inputName" type="text" required maxlength="15" placeholder="What is your name?" />
+            <!-- <input id="inputBtn" type="submit" value="Log In" /> -->
         </form>    
     
         <h2 id="clock">00:00:00</h2>
         <h1 id="greeting" class="hidden"></h1>
         
-        <form id="todo-form">
-            <input type="text" placeholder="Write a To Do and Press Enter">
-        </form>
-        <ul id="todo-list"></ul>
-
-        <div id="quote">
-            <span></span>
-            <span></span>
+        <div id="divFormAndUl" class="hidden">
+            <form id="todo-form">
+                <input type="text" placeholder="Write a To Do and Press Enter">
+            </form>
+    
+            <ul id="todo-list"></ul>
+    
+            <div id="quote">
+                <span></span>
+                <span></span>
+            </div>
         </div>
 
+        
         <script src="js/greeting.js"></script>
         <script src="js/clock.js"></script>
         <script src="js/quotes.js"></script>
