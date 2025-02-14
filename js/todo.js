@@ -43,8 +43,9 @@ function paintToDo(newTodo){  // input에 입력한 값을 화면상에 추가�
     const delBtn = document.createElement("button");
     delBtn.innerText = "❌";
     delBtn.addEventListener("click", deleteToDo);
-    patata.appendChild(span);  // <li>내부에 <span> 추가
     patata.appendChild(delBtn);
+    patata.appendChild(span);  // <li>내부에 <span> 추가
+    
     
     // console.log(patata);
 
