@@ -17,6 +17,21 @@ html, body {
 }
 
 
+#inputName {
+    font-size: 1rem;
+    color: black;
+    text-align: left; /* 좌측 정렬 */
+    text-shadow: 1px 1px 0px #ccc, -1px -1px 0px #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px; /* 고정된 너비 */
+    box-sizing: border-box; /* padding이 width에 포함되도록 */
+}
+
+
+/* */
+
+
 /* 전체 화면을 채우는 배경 */
 .imgBackground {
     position: fixed; /* 화면 전체를 덮기 위해 고정 */
