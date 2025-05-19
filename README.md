@@ -1,4 +1,9 @@
 # LakhAlex.github.io
 
-현재 index.html은 무료 강의 영상을 참고해서 만들어진 상황 입니다.
-추후, 개인적으로 만든 웹 페이지로 수정할 예정 입니다.
+index.html : TodoList, Bookmark 기능을 가지고 있음.
+
+< 사진 출처 >
+Unsplash의Boris Smokrovic
+Unsplash의iorni.com
+Unsplash의Hans Veth
+나머지 사진의 출처는 찾는데로 추가하도록 하겠습니다. (출처 정보를 잃어버린 상태)
