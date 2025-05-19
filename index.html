@@ -1,41 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <form id="login-form" class="hidden">
-            <input id="inputName" type="text" required maxlength="15" placeholder="What is your name?" />
-            <!-- <input id="inputBtn" type="submit" value="Log In" /> -->
-        </form>    
-    
-        <h2 id="clock">00:00:00</h2>
-        <h1 id="greeting" class="hidden"></h1>
-        
-        <div id="divFormAndUl" class="hidden">
-            <form id="todo-form">
-                <input type="text" placeholder="Write a To Do and Press Enter">
-            </form>
-    
-            <ul id="todo-list"></ul>
-    
-            <div id="quote">
-                <span></span>
-                <span></span>
+<html>
+    <head>
+        <title>newtab</title>
+        <meta charset="UTF-8" />
+		    <link rel="preconnect" href="https://fonts.googleapis.com">
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+				<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+				<link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="main-wrapper">
+                <div class="today-info">
+                    <div class="date" id="date">
+                        <!-- 날짜&요일 -->
+                    </div>
+                    <div class="time" id="time">
+                        <!-- 현재 시간 -->
+                    </div>
+                </div>
+                <div class="search">
+                    <input id="search-input" placeholder="검색어를 입력하세요" />
+                </div>
+            </div>
+            <div class="quote" id="quote">
+                
             </div>
         </div>
 
-        
-        <script src="js/greeting.js"></script>
-        <script src="js/clock.js"></script>
-        <script src="js/quotes.js"></script>
-        <script src="js/todo.js"></script>
-        <script src="js/background.js"></script> <!-- 배경 적용 스크립트 -->
-    </div>
-</body>
+        <!---->
+        <div class="todo-open" id="todo-open">
+            <div id="todo-open-btn">Todo 닫기</div>
+        </div>
+        <div class="todo-close" id="todo-close">
+            <div id="todo-close-btn">Todo 열기</div>
+        </div>
+    
+        <div class="todo-bar" id="todo-bar">
+            <!-- Todo 바 -->
+            <div class="todo-item-add-btn" id="todo-item-add-btn">
+                + 할 일 추가
+            </div>
+            <!-- 새로운 Todo 작성폼 -->
+            <div class="todo-item-input-form" id="todo-item-input-form">
+                <div class="todo-input">
+                    <div class="new-todo-name">
+                        <div class="label">해야 할 일</div>
+                        <input id="new-todo-name-input" />
+                    </div>
+                </div>
+                <div class="todo-item-input-btn">
+                    <div class="todo-cancel-btn" id="todo-cancel-btn">취소</div>
+                    <div class="todo-add-btn" id="todo-add-btn">추가</div>
+                </div>
+            </div>
+            <!-- 북마크 리스트 -->
+            <div class="todo-list" id="todo-list"></div>
+        </div>
+        <!---->
 
+        <div class="bookmark-open" id="bookmark-open">
+            <div id="bookmark-open-btn">북마크 닫기</div>
+        </div>
+        <div class="bookmark-close" id="bookmark-close">
+            <div id="bookmark-close-btn">북마크 열기</div>
+        </div>
+    
+        <div class="bookmark-bar" id="bookmark-bar">
+            <!-- 북마크 바 -->
+            <div class="bookmark-item-add-btn" id="bookmark-item-add-btn">
+                + 북마크 추가
+            </div>
+            <!-- 새로운 북마크 작성폼 -->
+            <div class="bookmark-item-input-form" id="bookmark-item-input-form">
+                <div class="bookmark-input">
+                    <div class="new-bookmark-name">
+                        <div class="label">이름</div>
+                        <input id="new-bookmark-name-input" />
+                    </div>
+                    <div class="new-bookmark-url">
+                        <div class="label">주소</div>
+                        <input id="new-bookmark-url-input" />
+                    </div>
+                </div>
+                <div class="bookmark-item-input-btn">
+                    <div class="cancel-btn" id="cancel-btn">취소</div>
+                    <div class="add-btn" id="add-btn">추가</div>
+                </div>
+            </div>
+            <!-- 북마크 리스트 -->
+            <div class="bookmark-list" id="bookmark-list"></div>
+        </div>
+
+    <script src="./js/clock.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/quote.js"></script>
+    <script src="./js/bookmark-toggle.js"></script>
+    <script src="./js/bookmark.js"></script>
+    <script src="./js/background.js"></script>
+
+    <script src="./js/todo-list.js"></script>
+    <script src="./js/todo-toggle.js"></script>
+    </body>
 </html>
