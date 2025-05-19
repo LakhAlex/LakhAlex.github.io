@@ -1,0 +1,390 @@
+:root {
+    --xlarge: 150px;
+    --large: 28px;
+    --medium: 18px;
+    --small: 16px;
+    --xsmall: 14px;
+    --xxsmall : 10px;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.main-container .main-wrapper{
+    text-align: center;
+    position: fixed;
+}
+
+/* 시계 */
+.main-wrapper .date {
+    font-size: var(--large);
+    font-weight: 400;
+    color:#E0FFFF;
+    text-shadow: -1.3px 0px #2F4F4F, 0px 1.3px #2F4F4F, 1.3px 0px #2F4F4F, 0px -1.3px #2F4F4F;
+}
+.main-wrapper .time {
+    font-size: var(--xlarge);
+    font-weight: 400;
+    margin-top: -35px;
+    color:#c0ffff;
+    /* color: #E0FFFF; */
+    text-shadow: -1px 0px #2F4F4F, 0px 1px #2F4F4F, 1px 0px #2F4F4F, 0px -1px #2F4F4F;
+}
+
+/* 검색 */
+.main-wrapper .search {
+    display: flex;
+    justify-content: center;
+}
+.main-wrapper #search-input {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: var(--medium);
+    padding: 15px 0px;
+    border-radius: 30px;
+    border: 0px;
+    width: 600px;
+    text-align: center;
+    margin-top: -15px;
+}
+.main-wrapper #search-input::placeholder{
+    color: rgb(222, 222, 222);
+    font-size: var(--medium);
+}
+
+/* 명언 */
+.quote {
+    font-size: calc(var(--small) + 2px);
+    position: fixed;
+    bottom: 0;
+    max-width: 800px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    font-weight: 300;
+		text-align: center;
+    color:#F8F8FF;
+    text-shadow: -1.5px 0px #2F4F4F, 0px 1.5px #2F4F4F, 1.5px 0px #2F4F4F, 0px -1.5px #2F4F4F;
+}
+
+/* 북마크 */
+.bookmark-open {
+    width: 240px;
+    padding: 15px 30px;
+    font-size: var(--xsmall);
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bookmark-close {
+    width: 240px;
+    padding: 15px 30px;
+    font-size: var(--xsmall);
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: white;
+    text-shadow: -1.5px 0px #696969, 0px 1.5px #696969, 1.5px 0px #696969, 0px -1.5px #696969;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 북마크 div에 마우스 올리면 발생하는 이벤트 : 커서 모양 변환*/
+.bookmark-open div {
+    cursor: pointer;
+}
+
+.bookmark-close div {
+    cursor: pointer;
+}
+
+/* 북마크 네모칸 색상, 크기, 배치 설정 */
+.bookmark-bar {
+    width: 240px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    min-height: calc(100vh - 70px);
+    padding: 10px 30px;
+    color: white;
+}
+
+/* 북마크 아이템 추가 버튼*/
+.bookmark-item-add-btn {
+    padding: 10px;  
+    font-size: var(--small);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: rgba(241, 241, 241, 0.2) 0.5px solid;
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+
+.bookmark-item-add-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 북마크 아이템 추가 폼*/
+.bookmark-item-input-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: rgba(241, 241, 241, 0.2) 0.5px solid;
+    font-size: var(--small);
+    border-radius: 5px;
+    padding: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bookmark-item-input-form .bookmark-input {
+    margin-bottom: 12px;
+}
+
+.bookmark-item-input-form .bookmark-input .label {
+    margin-bottom: 3px;
+    font-size: var(--xsmall);
+}
+
+.bookmark-item-input-form .bookmark-input input {
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.bookmark-item-input-form .bookmark-item-input-btn {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--xsmall);
+    margin-top: 5px;
+}
+
+.bookmark-item-input-btn div {
+    padding: 5px 35px;
+    border-radius: 5px;
+    border: rgba(241, 241, 241, 0.2) 0.5px solid;
+    cursor: pointer;
+}
+
+.bookmark-item-input-btn div:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 북마크 리스트 */
+.bookmark-list a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+}
+
+.bookmark-list .url-icon {
+    margin-right: 8px;
+}
+
+.url-icon img {
+    vertical-align: middle;
+}
+
+/* 북마크 아이템 */
+.bookmark-list .bookmark-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: rgba(241, 241, 241, 0.2) 0.5px solid;
+    font-size: var(—-small);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookmark-item .del-btn {
+    font-size: var(—-xxsmall);
+    color: lightgray;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+
+/* TodoList */
+.todo-open {
+    width: 350px;
+    padding: 15px 30px;
+    font-size: var(--xsmall);
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    left: px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-start;
+    z-index: 100; /* 다른 요소 위에 표시되도록 */
+}
+
+.todo-close {
+    width: 350px;
+    padding: 15px 30px;
+    font-size: var(--xsmall);
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: left;
+    color: white;
+    text-shadow: -1.5px 0px #696969, 0px 1.5px #696969, 1.5px 0px #696969, 0px -1.5px #696969;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: flex-start;
+    z-index: 100; /* 다른 요소 위에 표시되도록 */
+}
+
+.todo-wrapper {
+    position: relative;
+    width: 100%; /* 또는 적절한 width */
+    height: auto; /* 또는 고정 height */
+}
+
+/* 할 일 div에 마우스 올리면 발생하는 이벤트 : 커서 모양 변환*/
+.todo-open div {
+    cursor: pointer;
+}
+
+.todo-close div {
+    cursor: pointer;
+}
+
+/* 할 일 네모칸 색상, 크기, 배치 설정 */
+.todo-bar {
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    min-height: calc(100vh - 70px);
+    padding: 10px 30px;
+    color: white;
+}
+
+/* 할 일 아이템 추가 버튼*/
+.todo-item-add-btn {
+    padding: 10px;  
+    font-size: var(--small);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: rgba(241, 241, 241, 0.2) 0.5px solid;
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+#todo-add-btn{
+    transform: translateX(-10px); /* 왼쪽으로 10px 이동 */
+}
+
+.todo-item-add-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 할 일 아이템 추가 폼*/
+.todo-item-input-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: rgba(241, 241, 241, 0.2) 0.5px solid;
+    font-size: var(--small);
+    border-radius: 5px;
+    padding: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.todo-item-input-form .todo-input {
+    margin-bottom: 12px;
+}
+
+.todo-item-input-form .todo-input .label {
+    margin-bottom: 3px;
+    font-size: var(--xsmall);
+}
+
+.todo-item-input-form .todo-input input {
+    width: 300px;
+    height: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.todo-item-input-form .todo-item-input-btn {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--xsmall);
+    margin-top: 5px;
+}
+
+/* 할 일 추가할 때 글자크기 변경 */
+.todo-item-input-form .todo-input .label{
+    font-size: calc(var(--xsmall) + 2px);
+}
+#new-todo-name-input {
+    font-size: 16px; /* 원하는 크기로 설정 */
+}
+
+.todo-item-input-btn div {
+    padding: 5px 35px;
+    border-radius: 5px;
+    border: rgba(241, 241, 241, 0.2) 0.5px solid;
+    cursor: pointer;
+}
+
+.todo-item-input-btn div:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 할 일 리스트 */
+.todo-list a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+}
+
+/* 할 일 아이템 */
+.todo-list .todo-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: rgba(241, 241, 241, 0.2) 0.5px solid;
+    font-size: var(—-small);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-item .del-btn {
+    font-size: var(—-xxsmall);
+    color: lightgray;
+    vertical-align: middle;
+    cursor: pointer;
+}
