@@ -1,50 +1,135 @@
 import { GestureRecognizer, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
 
 let gestureRecognizer;
-let webcamElement = document.getElementById("webcam");
+// let webcamElement = document.getElementById("webcam");
+let webcamElement;
 let results;
 let particles = [];
+
+let isStarted = false;
+
 let handData = [
     { x: 0, y: 0, vx: 0, vy: 0, lastCategory: "None", burstCooldown: 0, chargeTime: 0 },
     { x: 0, y: 0, vx: 0, vy: 0, lastCategory: "None", burstCooldown: 0, chargeTime: 0 }
 ];
+
 let prayTimeCounter = 0;
 
-// [1. AI 초기화 및 카메라 설정]
+// =====================
+// 🔴 버튼으로 시작
+// =====================
+// window.startApp = async () => {
+//     if (isStarted) return;
+//     isStarted = true;
+
+//     document.getElementById("startUI").style.display = "none";
+
+//     await setupAI();
+// };
+window.startApp = async () => {
+    if (isStarted) return;
+    isStarted = true;
+
+    // 🔥 DOM이 완전히 로드된 후 가져오기
+    webcamElement = document.getElementById("webcam");
+
+    document.getElementById("startUI").style.display = "none";
+
+    await setupAI();
+};
+
+// =====================
+// AI 초기화
+// =====================
 async function setupAI() {
-    const vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm");
+    const vision = await FilesetResolver.forVisionTasks(
+        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
+    );
+
     gestureRecognizer = await GestureRecognizer.createFromOptions(vision, {
         baseOptions: {
-            modelAssetPath: "https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task",
-            delegate: "GPU"
+            modelAssetPath:
+                "https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task",
+            delegate: "GPU",
         },
         runningMode: "VIDEO",
-        numHands: 2
+        numHands: 2,
     });
-    startCamera();
+
+    await startCamera();
 }
 
-function startCamera() {
-    navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+// =====================
+// 카메라 시작 (매번 요청)
+// =====================
+// async function startCamera() {
+//     try {
+//         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+
+//         webcamElement.srcObject = stream;
+
+//         webcamElement.onloadeddata = () => {
+//             predict();
+//         };
+
+//     } catch (err) {
+//         alert("카메라 권한이 필요합니다.");
+//         isStarted = false;
+//         document.getElementById("startUI").style.display = "block";
+//     }
+// }
+async function startCamera() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+
         webcamElement.srcObject = stream;
-        webcamElement.addEventListener("loadeddata", predict);
-    });
+
+        webcamElement.onloadeddata = () => {
+            webcamElement.play(); // 🔥 안정성 추가
+            predict();
+        };
+
+    } catch (err) {
+        alert("카메라 권한이 필요합니다.");
+        isStarted = false;
+        document.getElementById("startUI").style.display = "block";
+    }
 }
 
+// =====================
+// 인식 루프
+// =====================
+// async function predict() {
+//     if (gestureRecognizer) {
+//         results = gestureRecognizer.recognizeForVideo(webcamElement, Date.now());
+//     }
+//     requestAnimationFrame(predict);
+// }
 async function predict() {
-    if (gestureRecognizer) {
+    if (gestureRecognizer && webcamElement.readyState >= 2) {
         results = gestureRecognizer.recognizeForVideo(webcamElement, Date.now());
+
+        // 🔥 디버깅 (확인용, 필요 없으면 나중에 삭제)
+        // console.log(results);
     }
     requestAnimationFrame(predict);
 }
 
+// =====================
+// p5 setup
+// =====================
 window.setup = () => {
     createCanvas(windowWidth, windowHeight);
     colorMode(HSB, 360, 100, 100, 100);
-    for (let i = 0; i < 800; i++) particles.push(new Particle());
-    setupAI();
+
+    for (let i = 0; i < 800; i++) {
+        particles.push(new Particle());
+    }
 };
 
+// =====================
+// p5 draw (기존 그대로 유지)
+// =====================
 window.draw = () => {
     background(0, 0, 0, 25);
 
