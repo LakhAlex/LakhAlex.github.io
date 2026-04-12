@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Hand Particle System</title>
+
+    <!-- p5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+    <!-- mediapipe -->
+    <script type="module" src="js/합장14.js"></script>
+
+    <style>
+        body { margin:0; overflow:hidden; background:black; }
+        #video_container {
+            position:fixed;
+            bottom:10px;
+            right:10px;
+            width:160px;
+            opacity:0.3;
+        }
+        video {
+            width:100%;
+            transform:rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+
+<div id="video_container">
+    <video id="webcam" autoplay playsinline></video>
+</div>
+
+</body>
+</html>
