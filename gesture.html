@@ -8,10 +8,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 
     <!-- mediapipe -->
-    <script type="module" src="js/합장14.js"></script>
+    <script type="module" src="js/합장15.js"></script>
 
     <style>
-        body { margin:0; overflow:hidden; background:black; }
+        body {
+            margin:0;
+            overflow:hidden;
+            background:black;
+            font-family: sans-serif;
+        }
+
+        /* 카메라 미리보기 */
         #video_container {
             position:fixed;
             bottom:10px;
@@ -19,16 +26,51 @@
             width:160px;
             opacity:0.3;
         }
+
         video {
             width:100%;
             transform:rotateY(180deg);
+        }
+
+        /* 시작 UI */
+        #startUI {
+            position:fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            text-align:center;
+            color:white;
+        }
+
+        #startBtn {
+            margin-top:20px;
+            padding:12px 24px;
+            font-size:16px;
+            border:none;
+            border-radius:8px;
+            background:#ffffff;
+            color:#000;
+            cursor:pointer;
+            transition:0.2s;
+        }
+
+        #startBtn:hover {
+            background:#ddd;
         }
     </style>
 </head>
 <body>
 
+<!-- 시작 UI -->
+<div id="startUI">
+    <h2>손 제스처 인식</h2>
+    <p>카메라를 사용하여 파티클을 제어합니다</p>
+    <button id="startBtn" onclick="startApp()">시작하기</button>
+</div>
+
+<!-- 카메라 -->
 <div id="video_container">
-    <video id="webcam" autoplay playsinline></video>
+    <video id="webcam" playsinline></video>
 </div>
 
 </body>
